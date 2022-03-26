@@ -1,0 +1,7 @@
+from nltk.corpus.reader import PlaintextCorpusReader
+source_dir = "Stock"
+pcr = PlaintextCorpusReader(root=source_dir, fileids=".*\.txt")
+
+from nltk.probability import FreqDist
+fd = FreqDist(samples=pcr.words())
+print(fd.most_common(n=100))
